@@ -1,0 +1,18 @@
+
+body
+{
+    background-image: url("whitePaper.jpg");
+    background-repeat: no-repeat;
+    background-position: left top;
+    background-size: cover;
+}
+
+.mainCanvas
+{
+    background-color: white;
+    margin: auto;   /* Centers the window */
+    position: relative;
+    width: 960px;
+    height: 720px;
+    border: 1px solid #000000;
+}
