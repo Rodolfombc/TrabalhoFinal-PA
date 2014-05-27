@@ -6,7 +6,7 @@ function init()
 {
     menuCanvas = document.getElementById("gameCanvas"),
     menuContext = menuCanvas.getContext("2d");
-    setInterval(drawMenu, 50); //Used to order the drawing
+    setInterval(drawMenu, 41); //Used to order the drawing
 }
 
 function drawMenu()
@@ -24,7 +24,6 @@ function loadBackgroundImage()
     {
         menuContext.drawImage(backgroundImg, 0, 0);
     }; 
-    
 }
 
 function loadBackgroundName()

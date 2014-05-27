@@ -9,9 +9,22 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Trabalho 3 Programacao Avancada</title>
+        
+        <!-- Adding .css files -->
+        <link rel="stylesheet" type="text/css" href="css/canvas.css">
+        <!-- Adding .css files -->
+        <script type="text/javascript" src="javascript/game.js"></script>
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <form name="game" action="GameManager" method="post">
+            <div class ="mainCanvas">
+                <canvas id="gameCanvas" width="960px" height="720px" >
+                    <script type="text/javascript">
+                        init();
+                    </script>
+                </canvas>
+            </div>
+        </form>        
     </body>
 </html>
