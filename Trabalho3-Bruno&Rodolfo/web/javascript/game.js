@@ -2,6 +2,7 @@
 var gameCanvas;
 var gameContext;
 
+var playerX = 0;
 var playerY = 0;
 var playerSpeed = 0;
 
@@ -23,6 +24,15 @@ var doge6Y = 500;
 var doge7Y = 600;
 
 var dogeSpeed = -3;
+
+var playerImg;
+var playerWidth;
+var playerHeight;
+
+var doge1Img;
+var doge2Img;
+var dogeWidth;
+var dogeHeight;
 
 function init()
 {
@@ -51,18 +61,20 @@ function loadBackgroundImage()
 
 function loadPlayerImage()
 {    
-    var playerImg = new Image();
+    playerImg = new Image();
     playerImg.src = "images/boneco.png";
 
     playerImg.onload = function()
     {
         gameContext.drawImage(playerImg, 0, playerY);
+        playerWidth = this.width;
+        playerHeight = this.height;
     }; 
 }
 
 function loadDogeImages()
 {    
-    var doge1Img = new Image();
+    doge1Img = new Image();
     doge1Img.src = "images/doge1.png";
     
     doge1Img.onload = function()
@@ -71,9 +83,12 @@ function loadDogeImages()
         gameContext.drawImage(doge1Img, doge3X, doge3Y);
         gameContext.drawImage(doge1Img, doge5X, doge5Y);
         gameContext.drawImage(doge1Img, doge7X, doge7Y);
+        
+        dogeWidth = this.width;
+        dogeHeight = this.height;
     }; 
     
-    var doge2Img = new Image();
+    doge2Img = new Image();
     doge2Img.src = "images/doge2.png";
     
     doge2Img.onload = function()
@@ -97,9 +112,11 @@ window.setInterval(function()
         doge6X += dogeSpeed;
         doge7X += dogeSpeed;
     }
-    else
+    
+    if((playerX < doge1X + dogeWidth) && (playerX + playerWidth  > doge1X) &&
+            (playerY < doge1Y + dogeHeight) && (playerY + playerHeight > doge1Y))
     {
-        alert("Game Over");
+        console.log("doge 1 collision");
     }
 }, 41); //24fps
 //=============================Doge movement============================//
