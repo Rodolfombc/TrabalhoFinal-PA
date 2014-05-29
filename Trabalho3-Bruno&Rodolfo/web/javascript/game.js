@@ -41,20 +41,33 @@ function loadPlayerImage()
 }
 
 
-//Player movement
+//====================================Player movement=====================================//
 window.setInterval(function() 
 {
     if ((playerSpeed < 0 && playerY >= 0) || (playerSpeed > 0 && playerY <= 580)) 
     {   
         playerY += playerSpeed;  
     }
-}, 41);
+}, 41); //24fps
 
 //Detecting input
 document.onkeydown = function(event)
 {
     var key_code = event.keyCode;
     KeyDownHandler(key_code);
+    
+    //====================================Player shoot========================================//
+    if(key_code === 17)
+    {
+        //console.log("shoot");
+        var bulletImg = new Image();
+        bulletImg.src = "images/tiro.png";
+        bulletImg.onload = function()
+        {
+            gameContext.drawImage(bulletImg, 109, playerY+30);
+        }; 
+    } 
+    //====================================Player shoot========================================//
 }
 function KeyDownHandler(key)
 {
@@ -67,13 +80,19 @@ function KeyDownHandler(key)
     if(key === 38)
     {  
         //alert("UP");
-        playerSpeed = -10;
+        playerSpeed = -12;
     }
     if(key === 40)
     {  
         //alert("DOWN");     
-        playerSpeed = 10;
+        playerSpeed = 12; 
     }    
+    
+    if(key === 27)
+    {
+        window.open('', '_self', ''); 
+        window.close(); //closing the tab with esc key
+    }
 }
 
 document.onkeyup = function(event)
@@ -88,3 +107,5 @@ function KeyUpHandler(key)
         playerSpeed = 0;
     }
 }
+//====================================Player movement=====================================//
+

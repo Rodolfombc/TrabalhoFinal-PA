@@ -21,7 +21,7 @@
             <div class ="mainCanvas">
                 <canvas id="gameCanvas" width="960px" height="720px" >
                     <script type="text/javascript">
-                        init();
+                        init();  
                     </script>
                 </canvas>
             </div>
