@@ -5,6 +5,25 @@ var gameContext;
 var playerY = 0;
 var playerSpeed = 0;
 
+//Doges positions
+var doge1X = 860;
+var doge2X = 860;
+var doge3X = 860;
+var doge4X = 860;
+var doge5X = 860;
+var doge6X = 860;
+var doge7X = 860;
+
+var doge1Y = 0;
+var doge2Y = 100;
+var doge3Y = 200;
+var doge4Y = 300;
+var doge5Y = 400;
+var doge6Y = 500;
+var doge7Y = 600;
+
+var dogeSpeed = -3;
+
 function init()
 {
     gameCanvas = document.getElementById("gameCanvas"),
@@ -16,6 +35,7 @@ function drawScreen()
 {
     loadBackgroundImage();
     loadPlayerImage();
+    loadDogeImages();
 }
 
 function loadBackgroundImage()
@@ -40,6 +60,49 @@ function loadPlayerImage()
     }; 
 }
 
+function loadDogeImages()
+{    
+    var doge1Img = new Image();
+    doge1Img.src = "images/doge1.png";
+    
+    doge1Img.onload = function()
+    {
+        gameContext.drawImage(doge1Img, doge1X, doge1Y);
+        gameContext.drawImage(doge1Img, doge3X, doge3Y);
+        gameContext.drawImage(doge1Img, doge5X, doge5Y);
+        gameContext.drawImage(doge1Img, doge7X, doge7Y);
+    }; 
+    
+    var doge2Img = new Image();
+    doge2Img.src = "images/doge2.png";
+    
+    doge2Img.onload = function()
+    {
+        gameContext.drawImage(doge2Img, doge2X, doge2Y);
+        gameContext.drawImage(doge2Img, doge4X, doge4Y);
+        gameContext.drawImage(doge2Img, doge6X, doge6Y);
+    }; 
+}
+
+//=============================Doge movement============================//
+window.setInterval(function() 
+{
+    if ((doge1X > 0) && (doge2X > 0) && (doge3X > 0) && (doge4X > 0) && (doge5X > 0) && (doge6X > 0) && (doge7X > 0)) 
+    {   
+        doge1X += dogeSpeed;
+        doge2X += dogeSpeed;
+        doge3X += dogeSpeed;
+        doge4X += dogeSpeed;
+        doge5X += dogeSpeed;
+        doge6X += dogeSpeed;
+        doge7X += dogeSpeed;
+    }
+    else
+    {
+        alert("Game Over");
+    }
+}, 41); //24fps
+//=============================Doge movement============================//
 
 //====================================Player movement=====================================//
 window.setInterval(function() 
