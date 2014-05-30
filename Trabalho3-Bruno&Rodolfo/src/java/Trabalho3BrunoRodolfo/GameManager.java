@@ -24,7 +24,8 @@ public class GameManager extends HttpServlet
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String player = request.getParameter("username");
         System.out.println(player);
-        request.getRequestDispatcher("./game.jsp").forward(request, response);
+        
+        request.getRequestDispatcher("./index.jsp").forward(request, response);
     }
 
 }

@@ -170,6 +170,7 @@ window.setInterval(function()
             (playerY+30 < doge1Y + dogeHeight) && (playerY+30 + bulletHeight > doge1Y))
     {
         //console.log("Morte doge 1 collision");
+        document.forms["game"].submit();
         doge1X += 100;
         doge1Speed -= 0.5;
         bulletWidth = 0;
