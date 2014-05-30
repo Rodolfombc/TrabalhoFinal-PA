@@ -13,16 +13,22 @@ public class GameManager extends HttpServlet
     int playerScore = 0;
     
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
+    {
         playerName = request.getParameter("playername");
-        System.out.println(playerName);
+        //System.out.println(playerName);
         request.getRequestDispatcher("./game.jsp").forward(request, response);
     }
 
     
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
+    {
+        playerScore = Integer.parseInt(request.getParameter("playerScore"));
         System.out.println(playerName);
+        System.out.println(playerScore);
+        
+        
         
         request.getRequestDispatcher("./index.jsp").forward(request, response);
     }

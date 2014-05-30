@@ -2,11 +2,21 @@
 var gameCanvas;
 var gameContext;
 
+
+//================================Player variables=============================//
 var playerX = 0;
 var playerY = 0;
 var playerSpeed = 0;
 
-//Doges positions
+var playerImg;
+var playerWidth;
+var playerHeight;
+
+var playerScore = 0;
+//================================Player variables=============================//
+
+
+//================================Doges variables=============================//
 var doge1X = 860;
 var doge2X = 860;
 var doge3X = 860;
@@ -31,22 +41,25 @@ var doge5Speed = -3;
 var doge6Speed = -3;
 var doge7Speed = -3;
 
-var playerImg;
-var playerWidth;
-var playerHeight;
-
 var doge1Img;
 var doge2Img;
 var dogeWidth;
 var dogeHeight;
+//================================Doges variables=============================//
 
+//================================Bullet variables=============================//
 var bulletImg;
 var bulletX = 109;
 var bulletWidth;
 var bulletHeight;
+//================================Bullet variables=============================//
 
-var playerScore = 0;
-
+//================================Doges texts=============================//
+var epic;
+var muchGrafix;
+var suchGame;
+var wow;
+//================================Doges texts=============================//
 
 function init()
 {
@@ -113,7 +126,7 @@ function loadDogeImages()
     }; 
 }
 
-//=============================Doge movement============================//
+//=============================Doge movement=====================================================//
 window.setInterval(function() 
 {    
 //    if(playerScore > 1000)
@@ -132,7 +145,8 @@ window.setInterval(function()
         doge6X += doge6Speed;
         doge7X += doge7Speed;
         playerScore += 1;
-        console.log(playerScore);
+        document.getElementById("playerScore").value = playerScore;
+        //console.log(document.getElementById("playerScore").value);
     }
     else
     {
@@ -252,7 +266,42 @@ window.setInterval(function()
     //====================Doges collision with bullet=============================//
     
 }, 41); //24fps
-//=============================Doge movement============================//
+//=============================Doge movement=====================================================//
+
+
+window.setInterval(function()
+{
+        //=============================Texts positioning============================//
+        epic = new Image();
+        epic.src = "images/EPIC.png";
+        epic.onload = function()
+        {
+            gameContext.drawImage(epic, Math.random()*800, Math.random()*700);
+        }; 
+        
+        muchGrafix = new Image();
+        muchGrafix.src = "images/MUCHGRAFIX.png";
+        muchGrafix.onload = function()
+        {
+            gameContext.drawImage(muchGrafix, Math.random()*800, Math.random()*700);
+        }; 
+        
+        suchGame = new Image();
+        suchGame.src = "images/SUCHGAME.png";
+        suchGame.onload = function()
+        {
+            gameContext.drawImage(suchGame, Math.random()*800, Math.random()*700);
+        }; 
+        
+        wow = new Image();
+        wow.src = "images/WOW.png";
+        wow.onload = function()
+        {
+            gameContext.drawImage(wow, Math.random()*800, Math.random()*700);
+        }; 
+    //=============================Texts positioning============================//
+}, 1000);
+
 
 //====================================Player movement=====================================//
 window.setInterval(function() 
@@ -282,7 +331,7 @@ document.onkeydown = function(event)
             bulletWidth = this.width;
             bulletHeight = this.height;
         }; 
-    } 
+    }         
     //====================================Player shoot========================================//
 }
 function KeyDownHandler(key)

@@ -20,7 +20,7 @@
         <form name="game" action="GameManager" method="post">
             <div class ="mainCanvas">
                 <canvas id="gameCanvas" width="960px" height="720px" >
-                    <input type="hidden" name="playerScore"/>
+                    <input type="number" id="playerScore" name="playerScore"/>
                     <script type="text/javascript">
                         init();  
                     </script>
