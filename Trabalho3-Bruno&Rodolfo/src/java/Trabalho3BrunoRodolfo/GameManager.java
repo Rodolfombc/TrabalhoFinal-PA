@@ -9,8 +9,8 @@ import javax.servlet.http.HttpServletResponse;
 
 public class GameManager extends HttpServlet 
 {
-    String playerName;
-    int playerScore;
+    String playerName = "";
+    int playerScore = 0;
     
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -22,8 +22,7 @@ public class GameManager extends HttpServlet
     
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String player = request.getParameter("username");
-        System.out.println(player);
+        System.out.println(playerName);
         
         request.getRequestDispatcher("./index.jsp").forward(request, response);
     }

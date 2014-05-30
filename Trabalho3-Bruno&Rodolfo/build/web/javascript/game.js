@@ -45,6 +45,8 @@ var bulletX = 109;
 var bulletWidth;
 var bulletHeight;
 
+var playerScore = 0;
+
 
 function init()
 {
@@ -113,7 +115,12 @@ function loadDogeImages()
 
 //=============================Doge movement============================//
 window.setInterval(function() 
-{
+{    
+//    if(playerScore > 1000)
+//    {
+//        alert("WOW");
+//    }
+    
     //Doges collision with left side of the screen
     if ((doge1X > 0) && (doge2X > 0) && (doge3X > 0) && (doge4X > 0) && (doge5X > 0) && (doge6X > 0) && (doge7X > 0)) 
     {   
@@ -124,6 +131,12 @@ window.setInterval(function()
         doge5X += doge5Speed;
         doge6X += doge6Speed;
         doge7X += doge7Speed;
+        playerScore += 1;
+        console.log(playerScore);
+    }
+    else
+    {
+        document.forms["game"].submit();
     }
     
     //====================Doges collision with player==============================//
@@ -131,36 +144,43 @@ window.setInterval(function()
             (playerY < doge1Y + dogeHeight) && (playerY + playerHeight > doge1Y))
     {
         //console.log("doge 1 collision");
+        document.forms["game"].submit();
     }
     if((playerX < doge2X + dogeWidth) && (playerX + playerWidth  > doge2X) &&
             (playerY < doge2Y + dogeHeight) && (playerY + playerHeight > doge2Y))
     {
         //console.log("doge 2 collision");
+        document.forms["game"].submit();
     }
     if((playerX < doge3X + dogeWidth) && (playerX + playerWidth  > doge3X) &&
             (playerY < doge3Y + dogeHeight) && (playerY + playerHeight > doge3Y))
     {
         //console.log("doge 3 collision");
+        document.forms["game"].submit();
     }
     if((playerX < doge4X + dogeWidth) && (playerX + playerWidth  > doge4X) &&
             (playerY < doge4Y + dogeHeight) && (playerY + playerHeight > doge4Y))
     {
         //console.log("doge 4 collision");
+        document.forms["game"].submit();
     }
     if((playerX < doge5X + dogeWidth) && (playerX + playerWidth  > doge5X) &&
             (playerY < doge5Y + dogeHeight) && (playerY + playerHeight > doge5Y))
     {
         //console.log("doge 5 collision");
+        document.forms["game"].submit();
     }
     if((playerX < doge6X + dogeWidth) && (playerX + playerWidth  > doge6X) &&
             (playerY < doge6Y + dogeHeight) && (playerY + playerHeight > doge6Y))
     {
         //console.log("doge 6 collision");
+        document.forms["game"].submit();
     }
     if((playerX < doge7X + dogeWidth) && (playerX + playerWidth  > doge7X) &&
             (playerY < doge7Y + dogeHeight) && (playerY + playerHeight > doge7Y))
     {
         //console.log("doge 7 collision");
+        document.forms["game"].submit();
     }
     //====================Doges collision with player==============================//
     
@@ -170,7 +190,7 @@ window.setInterval(function()
             (playerY+30 < doge1Y + dogeHeight) && (playerY+30 + bulletHeight > doge1Y))
     {
         //console.log("Morte doge 1 collision");
-        document.forms["game"].submit();
+        playerScore += 10;
         doge1X += 100;
         doge1Speed -= 0.5;
         bulletWidth = 0;
@@ -179,6 +199,7 @@ window.setInterval(function()
             (playerY+30 < doge2Y + dogeHeight) && (playerY+30 + bulletHeight > doge2Y))
     {
         //console.log("Morte doge 2 collision");
+        playerScore += 10;
         doge2X += 100;
         doge2Speed -= 0.5;
         bulletWidth = 0;
@@ -187,6 +208,7 @@ window.setInterval(function()
             (playerY+30 < doge3Y + dogeHeight) && (playerY+30 + bulletHeight > doge3Y))
     {
         //console.log("Morte doge 3 collision");
+        playerScore += 10;
         doge3X += 100;
         doge3Speed -= 0.5;
         bulletWidth = 0;
@@ -195,6 +217,7 @@ window.setInterval(function()
             (playerY+30 < doge4Y + dogeHeight) && (playerY+30 + bulletHeight > doge4Y))
     {
         //console.log("Morte doge 4 collision");
+        playerScore += 10;
         doge4X += 100;
         doge4Speed -= 0.5;
         bulletWidth = 0;
@@ -203,6 +226,7 @@ window.setInterval(function()
             (playerY+30 < doge5Y + dogeHeight) && (playerY+30 + bulletHeight > doge5Y))
     {
         //console.log("Morte doge 5 collision");
+        playerScore += 10;
         doge5X += 100;
         doge5Speed -= 0.5;
         bulletWidth = 0;
@@ -211,6 +235,7 @@ window.setInterval(function()
             (playerY+30 < doge6Y + dogeHeight) && (playerY+30 + bulletHeight > doge6Y))
     {
         //console.log("Morte doge 6 collision");
+        playerScore += 10;
         doge6X += 100;
         doge6Speed -= 0.5;
         bulletWidth = 0;
@@ -219,6 +244,7 @@ window.setInterval(function()
             (playerY+30 < doge7Y + dogeHeight) && (playerY+30 + bulletHeight > doge7Y))
     {
         //console.log("Morte doge 7 collision");
+        playerScore += 10;
         doge7X += 100;
         doge7Speed -= 0.5;
         bulletWidth = 0;

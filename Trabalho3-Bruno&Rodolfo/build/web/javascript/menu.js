@@ -38,5 +38,14 @@ function loadBackgroundName()
     
 }
 
-
+document.onkeydown = function(event)
+{
+    var key_code = event.keyCode;
+  
+    if(key_code === 27)
+    {
+        window.open('', '_self', ''); 
+        window.close(); //closing the tab with esc key
+    }
+}
 
