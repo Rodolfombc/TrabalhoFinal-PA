@@ -23,7 +23,13 @@ var doge5Y = 400;
 var doge6Y = 500;
 var doge7Y = 600;
 
-var dogeSpeed = -3;
+var doge1Speed = -3;
+var doge2Speed = -3;
+var doge3Speed = -3;
+var doge4Speed = -3;
+var doge5Speed = -3;
+var doge6Speed = -3;
+var doge7Speed = -3;
 
 var playerImg;
 var playerWidth;
@@ -33,6 +39,12 @@ var doge1Img;
 var doge2Img;
 var dogeWidth;
 var dogeHeight;
+
+var bulletImg;
+var bulletX = 109;
+var bulletWidth;
+var bulletHeight;
+
 
 function init()
 {
@@ -102,22 +114,116 @@ function loadDogeImages()
 //=============================Doge movement============================//
 window.setInterval(function() 
 {
+    //Doges collision with left side of the screen
     if ((doge1X > 0) && (doge2X > 0) && (doge3X > 0) && (doge4X > 0) && (doge5X > 0) && (doge6X > 0) && (doge7X > 0)) 
     {   
-        doge1X += dogeSpeed;
-        doge2X += dogeSpeed;
-        doge3X += dogeSpeed;
-        doge4X += dogeSpeed;
-        doge5X += dogeSpeed;
-        doge6X += dogeSpeed;
-        doge7X += dogeSpeed;
+        doge1X += doge1Speed;
+        doge2X += doge2Speed;
+        doge3X += doge3Speed;
+        doge4X += doge4Speed;
+        doge5X += doge5Speed;
+        doge6X += doge6Speed;
+        doge7X += doge7Speed;
     }
     
+    //====================Doges collision with player==============================//
     if((playerX < doge1X + dogeWidth) && (playerX + playerWidth  > doge1X) &&
             (playerY < doge1Y + dogeHeight) && (playerY + playerHeight > doge1Y))
     {
-        console.log("doge 1 collision");
+        //console.log("doge 1 collision");
     }
+    if((playerX < doge2X + dogeWidth) && (playerX + playerWidth  > doge2X) &&
+            (playerY < doge2Y + dogeHeight) && (playerY + playerHeight > doge2Y))
+    {
+        //console.log("doge 2 collision");
+    }
+    if((playerX < doge3X + dogeWidth) && (playerX + playerWidth  > doge3X) &&
+            (playerY < doge3Y + dogeHeight) && (playerY + playerHeight > doge3Y))
+    {
+        //console.log("doge 3 collision");
+    }
+    if((playerX < doge4X + dogeWidth) && (playerX + playerWidth  > doge4X) &&
+            (playerY < doge4Y + dogeHeight) && (playerY + playerHeight > doge4Y))
+    {
+        //console.log("doge 4 collision");
+    }
+    if((playerX < doge5X + dogeWidth) && (playerX + playerWidth  > doge5X) &&
+            (playerY < doge5Y + dogeHeight) && (playerY + playerHeight > doge5Y))
+    {
+        //console.log("doge 5 collision");
+    }
+    if((playerX < doge6X + dogeWidth) && (playerX + playerWidth  > doge6X) &&
+            (playerY < doge6Y + dogeHeight) && (playerY + playerHeight > doge6Y))
+    {
+        //console.log("doge 6 collision");
+    }
+    if((playerX < doge7X + dogeWidth) && (playerX + playerWidth  > doge7X) &&
+            (playerY < doge7Y + dogeHeight) && (playerY + playerHeight > doge7Y))
+    {
+        //console.log("doge 7 collision");
+    }
+    //====================Doges collision with player==============================//
+    
+    
+    //====================Doges collision with bullet=============================//
+    if((bulletX < doge1X + dogeWidth) && (bulletX + bulletWidth  > doge1X) &&
+            (playerY+30 < doge1Y + dogeHeight) && (playerY+30 + bulletHeight > doge1Y))
+    {
+        //console.log("Morte doge 1 collision");
+        doge1X += 100;
+        doge1Speed -= 0.5;
+        bulletWidth = 0;
+    }
+    if((bulletX < doge2X + dogeWidth) && (bulletX + bulletWidth  > doge2X) &&
+            (playerY+30 < doge2Y + dogeHeight) && (playerY+30 + bulletHeight > doge2Y))
+    {
+        //console.log("Morte doge 2 collision");
+        doge2X += 100;
+        doge2Speed -= 0.5;
+        bulletWidth = 0;
+    }
+    if((bulletX < doge3X + dogeWidth) && (bulletX + bulletWidth  > doge3X) &&
+            (playerY+30 < doge3Y + dogeHeight) && (playerY+30 + bulletHeight > doge3Y))
+    {
+        //console.log("Morte doge 3 collision");
+        doge3X += 100;
+        doge3Speed -= 0.5;
+        bulletWidth = 0;
+    }
+    if((bulletX < doge4X + dogeWidth) && (bulletX + bulletWidth  > doge4X) &&
+            (playerY+30 < doge4Y + dogeHeight) && (playerY+30 + bulletHeight > doge4Y))
+    {
+        //console.log("Morte doge 4 collision");
+        doge4X += 100;
+        doge4Speed -= 0.5;
+        bulletWidth = 0;
+    }
+    if((bulletX < doge5X + dogeWidth) && (bulletX + bulletWidth  > doge5X) &&
+            (playerY+30 < doge5Y + dogeHeight) && (playerY+30 + bulletHeight > doge5Y))
+    {
+        //console.log("Morte doge 5 collision");
+        doge5X += 100;
+        doge5Speed -= 0.5;
+        bulletWidth = 0;
+    }
+    if((bulletX < doge6X + dogeWidth) && (bulletX + bulletWidth  > doge6X) &&
+            (playerY+30 < doge6Y + dogeHeight) && (playerY+30 + bulletHeight > doge6Y))
+    {
+        //console.log("Morte doge 6 collision");
+        doge6X += 100;
+        doge6Speed -= 0.5;
+        bulletWidth = 0;
+    }
+    if((bulletX < doge7X + dogeWidth) && (bulletX + bulletWidth  > doge7X) &&
+            (playerY+30 < doge7Y + dogeHeight) && (playerY+30 + bulletHeight > doge7Y))
+    {
+        //console.log("Morte doge 7 collision");
+        doge7X += 100;
+        doge7Speed -= 0.5;
+        bulletWidth = 0;
+    }
+    //====================Doges collision with bullet=============================//
+    
 }, 41); //24fps
 //=============================Doge movement============================//
 
@@ -140,11 +246,14 @@ document.onkeydown = function(event)
     if(key_code === 17)
     {
         //console.log("shoot");
-        var bulletImg = new Image();
+        bulletImg = new Image();
         bulletImg.src = "images/tiro.png";
+        
         bulletImg.onload = function()
         {
-            gameContext.drawImage(bulletImg, 109, playerY+30);
+            gameContext.drawImage(bulletImg, bulletX, playerY+30);
+            bulletWidth = this.width;
+            bulletHeight = this.height;
         }; 
     } 
     //====================================Player shoot========================================//
