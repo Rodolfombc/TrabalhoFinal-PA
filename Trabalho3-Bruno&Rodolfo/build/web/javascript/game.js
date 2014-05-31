@@ -55,17 +55,24 @@ var bulletHeight;
 //================================Bullet variables=============================//
 
 //================================Doges texts=============================//
-var epic;
-var muchGrafix;
-var suchGame;
-var wow;
+var epic; var epicX; var epicY;
+
+var muchGrafix; var muchGrafixX; var muchGrafixY;
+
+var suchGame; var suchGameX; var suchGameY;
+
+var wow; var wowX; var wowY;
+
+var textsCounter = 0;
+var canDrawTexts = false;
 //================================Doges texts=============================//
 
 function init()
 {
     gameCanvas = document.getElementById("gameCanvas"),
     gameContext = gameCanvas.getContext("2d");
-    setInterval(drawScreen, 41); //Used to order the drawing
+    setInterval(drawScreen, 41);  //Used to order the drawing
+    setInterval(drawTexts, 41);
 }
 
 function drawScreen()
@@ -126,6 +133,71 @@ function loadDogeImages()
     }; 
 }
 
+function drawTexts()
+{
+    //=============================Texts positioning============================//
+    if(textsCounter > 20)
+    {
+        epicX = Math.random() * 700;
+        epicY = Math.random() * 500;
+        
+        muchGrafixX = Math.random() * 700;
+        muchGrafixY = Math.random() * 500;
+        
+        suchGameX = Math.random() * 700;
+        suchGameY = Math.random() * 500;
+        
+        wowX = Math.random() * 700;
+        wowY = Math.random() * 500;
+        
+        if(canDrawTexts === false)
+        {
+            canDrawTexts = true;
+        }
+        else if(canDrawTexts === true)
+        {
+            canDrawTexts = false;
+        }
+        
+        textsCounter = 0;
+    }
+    //console.log(canDrawTexts);
+    
+    if(canDrawTexts === true)
+    {
+        epic = new Image();
+        epic.src = "images/EPIC.png";
+        epic.onload = function()
+        {
+            gameContext.drawImage(epic, epicX, epicY);
+        };
+
+        muchGrafix = new Image();
+        muchGrafix.src = "images/MUCHGRAFIX.png";
+        muchGrafix.onload = function()
+        {
+            gameContext.drawImage(muchGrafix, muchGrafixX, muchGrafixY);
+        };
+
+        suchGame = new Image();
+        suchGame.src = "images/SUCHGAME.png";
+        suchGame.onload = function()
+        {
+            gameContext.drawImage(suchGame, suchGameX, suchGameY);
+        };
+
+        wow = new Image();
+        wow.src = "images/WOW.png";
+        wow.onload = function()
+        {
+            gameContext.drawImage(wow, wowX, wowY);
+        };
+    }
+    
+    //=============================Texts positioning============================//
+}
+
+
 //=============================Doge movement=====================================================//
 window.setInterval(function() 
 {    
@@ -133,6 +205,8 @@ window.setInterval(function()
 //    {
 //        alert("WOW");
 //    }
+    textsCounter += 1;
+    //console.log(textsCounter);    
     
     //Doges collision with left side of the screen
     if ((doge1X > 0) && (doge2X > 0) && (doge3X > 0) && (doge4X > 0) && (doge5X > 0) && (doge6X > 0) && (doge7X > 0)) 
@@ -267,40 +341,6 @@ window.setInterval(function()
     
 }, 41); //24fps
 //=============================Doge movement=====================================================//
-
-
-window.setInterval(function()
-{
-        //=============================Texts positioning============================//
-        epic = new Image();
-        epic.src = "images/EPIC.png";
-        epic.onload = function()
-        {
-            gameContext.drawImage(epic, Math.random()*800, Math.random()*700);
-        }; 
-        
-        muchGrafix = new Image();
-        muchGrafix.src = "images/MUCHGRAFIX.png";
-        muchGrafix.onload = function()
-        {
-            gameContext.drawImage(muchGrafix, Math.random()*800, Math.random()*700);
-        }; 
-        
-        suchGame = new Image();
-        suchGame.src = "images/SUCHGAME.png";
-        suchGame.onload = function()
-        {
-            gameContext.drawImage(suchGame, Math.random()*800, Math.random()*700);
-        }; 
-        
-        wow = new Image();
-        wow.src = "images/WOW.png";
-        wow.onload = function()
-        {
-            gameContext.drawImage(wow, Math.random()*800, Math.random()*700);
-        }; 
-    //=============================Texts positioning============================//
-}, 1000);
 
 
 //====================================Player movement=====================================//
