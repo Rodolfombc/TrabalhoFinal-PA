@@ -20,7 +20,7 @@
                         init();
                     </script>
                 </canvas>
-                <input type="text" name="playername" size="50" style="position: absolute; left: 31%; top: 630px"/>
+                <input type="text" name="playername" size="50" maxlength='10' style="position: absolute; left: 31%; top: 630px"/>
                 
                 <input type="submit" name="playButton" value="Jogar" id="playButton" />
                 <input type="button" name="quitButton" value="Quit" id="quitButton" onclick="Javascript:window.close();"/>

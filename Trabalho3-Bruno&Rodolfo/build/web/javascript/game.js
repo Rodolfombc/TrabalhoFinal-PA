@@ -13,6 +13,7 @@ var playerWidth;
 var playerHeight;
 
 var playerScore = 0;
+var playerName = "";
 //================================Player variables=============================//
 
 
@@ -67,6 +68,11 @@ var textsCounter = 0;
 var canDrawTexts = false;
 //================================Doges texts=============================//
 
+function setName(name)
+{
+    playerName = name;
+}
+
 function init()
 {
     gameCanvas = document.getElementById("gameCanvas"),
@@ -90,6 +96,10 @@ function loadBackgroundImage()
     backgroundImg.onload = function()
     {
         gameContext.drawImage(backgroundImg, 0, 0);
+        gameContext.fillStyle = "white";
+        gameContext.font = "bold 36px Arial";
+        gameContext.fillText("Player: "+playerName, 150, 40);
+        gameContext.fillText("Score: "+playerScore, 600, 40);
     }; 
 }
 
@@ -371,6 +381,9 @@ document.onkeydown = function(event)
             bulletWidth = this.width;
             bulletHeight = this.height;
         }; 
+
+        var shootSound = new Audio("sounds/muzzleshot.wav");
+        shootSound.play();
     }         
     //====================================Player shoot========================================//
 }
