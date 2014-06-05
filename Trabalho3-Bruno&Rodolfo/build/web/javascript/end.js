@@ -1,6 +1,19 @@
 var gameCanvas;
 var gameContext;
 
+var playerList = new Array();
+var scoreList = new Array();
+
+function setPlayerList(pl)
+{
+    playerList = pl;
+}
+
+function setScoreList(sl)
+{
+    scoreList = sl;
+}
+
 function init()
 {
     gameCanvas = document.getElementById("gameCanvas"),
@@ -23,8 +36,12 @@ function loadBackgroundImage()
         gameContext.drawImage(backgroundImg, 0, 0);
         gameContext.fillStyle = "white";
         gameContext.font = "bold 36px Arial";
-        //gameContext.fillText("Player: "+playerName, 150, 40);
-        //gameContext.fillText("Score: "+playerScore, 600, 40);
+        
+        for (var i = 0; i < scoreList.length-1; i++) 
+        { 
+            gameContext.fillText("Player: "+playerList[i], 150, 40+40*i);
+            gameContext.fillText("Score: "+scoreList[i], 600, 40+40*i);
+        }
     }; 
 }
 

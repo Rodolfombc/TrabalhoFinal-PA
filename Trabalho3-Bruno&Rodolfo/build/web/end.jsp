@@ -1,10 +1,5 @@
-<%-- 
-    Document   : end
-    Created on : 01/06/2014, 12:55:45
-    Author     : Rodolfo
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -18,11 +13,20 @@
     </head>
     <body>
         <form name="game" action="GameManager" method="post">
+            <!-- Receiving values from GameManager -->
+            <c:set var="players" value="${players}"/>
+            <c:set var="scores" value="${scores}"/>
             <div class ="mainCanvas">
                 <canvas id="gameCanvas" width="960px" height="720px" >
-                    <input type="number" id="playerScore" name="playerScore"/>
                     <script type="text/javascript">
                         init();  
+                        var players = "${players}".split(",");
+                        var scores = "${scores}".split(",");
+                        setPlayerList(players);
+                        setScoreList(scores);
+                        
+                        console.log(players);
+                        console.log(scores);
                     </script>
                 </canvas>
             </div>

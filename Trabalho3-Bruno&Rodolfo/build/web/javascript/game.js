@@ -231,12 +231,11 @@ window.setInterval(function()
         playerScore += 1;
         document.getElementById("playerScore").value = playerScore;
         //console.log(document.getElementById("playerScore").value);
-    }
+    }    
     else
     {
         document.forms["game"].submit();
     }
-    
     //====================Doges collision with player==============================//
     if((playerX < doge1X + dogeWidth) && (playerX + playerWidth  > doge1X) &&
             (playerY < doge1Y + dogeHeight) && (playerY + playerHeight > doge1Y))
@@ -244,44 +243,43 @@ window.setInterval(function()
         //console.log("doge 1 collision");
         document.forms["game"].submit();
     }
-    if((playerX < doge2X + dogeWidth) && (playerX + playerWidth  > doge2X) &&
+    else if((playerX < doge2X + dogeWidth) && (playerX + playerWidth  > doge2X) &&
             (playerY < doge2Y + dogeHeight) && (playerY + playerHeight > doge2Y))
     {
         //console.log("doge 2 collision");
         document.forms["game"].submit();
     }
-    if((playerX < doge3X + dogeWidth) && (playerX + playerWidth  > doge3X) &&
+    else if((playerX < doge3X + dogeWidth) && (playerX + playerWidth  > doge3X) &&
             (playerY < doge3Y + dogeHeight) && (playerY + playerHeight > doge3Y))
     {
         //console.log("doge 3 collision");
         document.forms["game"].submit();
     }
-    if((playerX < doge4X + dogeWidth) && (playerX + playerWidth  > doge4X) &&
+    else if((playerX < doge4X + dogeWidth) && (playerX + playerWidth  > doge4X) &&
             (playerY < doge4Y + dogeHeight) && (playerY + playerHeight > doge4Y))
     {
         //console.log("doge 4 collision");
         document.forms["game"].submit();
     }
-    if((playerX < doge5X + dogeWidth) && (playerX + playerWidth  > doge5X) &&
+    else if((playerX < doge5X + dogeWidth) && (playerX + playerWidth  > doge5X) &&
             (playerY < doge5Y + dogeHeight) && (playerY + playerHeight > doge5Y))
     {
         //console.log("doge 5 collision");
         document.forms["game"].submit();
     }
-    if((playerX < doge6X + dogeWidth) && (playerX + playerWidth  > doge6X) &&
+    else if((playerX < doge6X + dogeWidth) && (playerX + playerWidth  > doge6X) &&
             (playerY < doge6Y + dogeHeight) && (playerY + playerHeight > doge6Y))
     {
         //console.log("doge 6 collision");
         document.forms["game"].submit();
     }
-    if((playerX < doge7X + dogeWidth) && (playerX + playerWidth  > doge7X) &&
+    else if((playerX < doge7X + dogeWidth) && (playerX + playerWidth  > doge7X) &&
             (playerY < doge7Y + dogeHeight) && (playerY + playerHeight > doge7Y))
     {
         //console.log("doge 7 collision");
         document.forms["game"].submit();
     }
     //====================Doges collision with player==============================//
-    
     
     //====================Doges collision with bullet=============================//
     if((bulletX < doge1X + dogeWidth) && (bulletX + bulletWidth  > doge1X) &&
